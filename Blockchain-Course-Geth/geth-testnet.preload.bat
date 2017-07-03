@@ -1,0 +1,1 @@
+geth  --verbosity "0" --datadir "./data" --testnet --preload "./scripts/utils.js" console

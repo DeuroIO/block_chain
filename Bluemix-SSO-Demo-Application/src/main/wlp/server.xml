@@ -1,0 +1,27 @@
+<server>
+
+    <featureManager>
+        <feature>servlet-3.1</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="*"
+                  httpPort="9080">
+        <tcpOptions soReuseAddr="true"/>
+    </httpEndpoint>
+
+<!-- This is the original – commented it out
+    <application name="JavaHelloWorldApp" context-root="/JavaHelloWorldApp" location="${appLocation}" type="war"/>
+-->
+
+<!-- This is added to integrate with the SSO service -->
+<application name="CloudRocketSSO" context-root="/CloudRocketSSO" location="${appLocation}" type="war">
+        <application-bnd>
+            <security-role name="CloudRocketSSO">
+                <special-subject type="ALL_AUTHENTICATED_USERS"/>
+            </security-role>
+        </application-bnd>
+    </application>
+
+</server>
+
